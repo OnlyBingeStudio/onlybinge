@@ -1,0 +1,1210 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no"
+    />
+    <title>OnlyBinge - Premium Streaming Platform</title>
+    <link rel="icon" href="favicon.png" type="image/png" />
+    <link rel="stylesheet" href="streaming-platform.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+  </head>
+  <body>
+    <div class="loading-screen" id="loading-screen">
+      <div class="loader">
+        <div class="loader-spinner"></div>
+        <div class="loader-text">ONLYBINGE</div>
+      </div>
+    </div>
+
+    <div class="auth-container" id="auth-container">
+      <div class="auth-backdrop"></div>
+      <div class="auth-layout">
+        <!-- Left Side - Auth Forms -->
+        <div class="auth-left">
+          <div class="auth-box">
+            <div class="auth-logo">
+              <h1>ONLYBINGE</h1>
+              <p>Premium Streaming Entertainment</p>
+            </div>
+
+            <div class="auth-form active" id="signin-form">
+              <h2>Sign In</h2>
+              <form>
+                <div class="form-group">
+                  <input
+                    type="email"
+                    id="signin-email"
+                    required
+                    placeholder=" "
+                  />
+                  <label>Email address</label>
+                </div>
+                <div class="form-group">
+                  <input
+                    type="password"
+                    id="signin-password"
+                    required
+                    placeholder=" "
+                  />
+                  <label>Password</label>
+                </div>
+                <button type="submit" class="btn-primary">Sign In</button>
+              </form>
+              <div class="auth-footer">
+                <p>
+                  New to OnlyBinge? <a href="#" id="show-signup">Sign up now</a>
+                </p>
+                <p><a href="#" id="show-reset">Forgot password?</a></p>
+              </div>
+            </div>
+
+            <div class="auth-form" id="signup-form">
+              <h2>Create Account</h2>
+              <form>
+                <div class="form-group">
+                  <input
+                    type="email"
+                    id="signup-email"
+                    required
+                    placeholder=" "
+                  />
+                  <label>Email address</label>
+                </div>
+                <div class="form-group">
+                  <input
+                    type="password"
+                    id="signup-password"
+                    required
+                    placeholder=" "
+                  />
+                  <label>Password (min 10 characters)</label>
+                </div>
+                <div class="form-group">
+                  <input
+                    type="password"
+                    id="signup-confirm"
+                    required
+                    placeholder=" "
+                  />
+                  <label>Confirm password</label>
+                </div>
+                <button type="submit" class="btn-primary">Sign Up</button>
+              </form>
+              <div class="auth-footer">
+                <p>
+                  Already have an account?
+                  <a href="#" id="show-signin">Sign in</a>
+                </p>
+              </div>
+            </div>
+
+            <div class="auth-form" id="reset-form">
+              <h2>Reset Password</h2>
+              <p class="auth-description">
+                We'll send you a password reset link to your email.
+              </p>
+              <form>
+                <div class="form-group">
+                  <input
+                    type="email"
+                    id="reset-email"
+                    required
+                    placeholder=" "
+                  />
+                  <label>Email address</label>
+                </div>
+                <button type="submit" class="btn-primary">
+                  Send Reset Link
+                </button>
+              </form>
+              <div class="auth-footer">
+                <p><a href="#" id="back-signin">Back to Sign In</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Side - Pricing & USP -->
+        <div class="auth-right">
+          <div class="pricing-content">
+            <h2 class="pricing-headline">Watch Unlimited Movies & Shows</h2>
+            <div class="pricing-highlight">
+              <span class="pricing-currency">₹</span>
+              <span class="pricing-amount">50</span>
+              <span class="pricing-period">/month</span>
+            </div>
+
+            <div class="pricing-comparison">
+              <h3>Compare with Others</h3>
+              <div class="comparison-table">
+                <div class="comparison-row competitor">
+                  <span class="service-name">Netflix</span>
+                  <span class="service-price">₹649/mo</span>
+                </div>
+                <div class="comparison-row competitor">
+                  <span class="service-name">Amazon Prime</span>
+                  <span class="service-price">₹299/mo</span>
+                </div>
+                <div class="comparison-row competitor">
+                  <span class="service-name">Disney+ Hotstar</span>
+                  <span class="service-price">₹299/mo</span>
+                </div>
+                <div class="comparison-row highlight">
+                  <span class="service-name">OnlyBinge</span>
+                  <span class="service-price">₹50/mo</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="usp-list">
+              <div class="usp-item">
+                <i class="fas fa-bolt"></i>
+                <span>Instant streaming - No downloads needed</span>
+              </div>
+              <div class="usp-item">
+                <i class="fas fa-clock"></i>
+                <span
+                  >Save hours compared to free sites with multiple
+                  redirects</span
+                >
+              </div>
+              <div class="usp-item">
+                <i class="fas fa-play-circle"></i>
+                <span>Watch while others are still downloading</span>
+              </div>
+              <div class="usp-item">
+                <i class="fas fa-film"></i>
+                <span>Access to thousands of movies and TV shows</span>
+              </div>
+              <div class="usp-item">
+                <i class="fas fa-ban"></i>
+                <span>No ads, no waiting</span>
+              </div>
+              <div class="usp-item">
+                <i class="fas fa-coffee"></i>
+                <span>₹50/month - Less than a cup of coffee</span>
+              </div>
+            </div>
+
+            <button class="btn-subscribe" id="open-payment-modal">
+              <i class="fas fa-crown"></i> Subscribe Now - ₹50/month
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <header class="main-header" id="main-header">
+      <div class="header-left">
+        <div class="logo">ONLYBINGE</div>
+
+        <!-- THIS BUTTON MUST BE HERE - right after logo, before nav -->
+        <button
+          class="mobile-menu-toggle"
+          id="mobile-menu-toggle"
+          aria-label="Toggle menu"
+        >
+          <i class="fas fa-bars"></i>
+        </button>
+
+        <nav class="main-nav">
+          <a href="#" class="nav-link active" data-section="home">Home</a>
+          <a href="#" class="nav-link" data-section="movies">Movies</a>
+          <a href="#" class="nav-link" data-section="tv">TV Shows</a>
+          <a href="#" class="nav-link firework-nav" data-section="bollywood"
+            >Bollywood</a
+          >
+          <a href="#" class="nav-link" data-section="mylist">My List</a>
+          <a href="#" class="nav-link" data-section="about">About</a>
+        </nav>
+      </div>
+      <div class="header-right">
+        <div class="subscription-badge">
+          <i class="fas fa-crown"></i> ₹50/month
+        </div>
+        <div class="search-container">
+          <i class="fas fa-search search-icon"></i>
+          <input
+            class="search-input"
+            id="main-search-input"
+            placeholder="Search movies & shows"
+          />
+        </div>
+        <button id="pay-now-btn" class="pay-now-btn" style="display: none">
+          <i class="fas fa-wallet"></i> Pay Now
+        </button>
+        <div class="user-menu">
+          <img
+            src="https://avatar.iran.liara.run/public/43"
+            alt="User Avatar"
+            class="user-avatar"
+          />
+          <div class="user-dropdown">
+            <a href="#" id="account-link"
+              ><i class="fas fa-user"></i> Account</a
+            >
+            <a href="#" id="subscribe-link"
+              ><i class="fas fa-crown"></i> Subscribe</a
+            >
+            <a href="#" id="logout-link"
+              ><i class="fas fa-sign-out-alt"></i> Sign Out</a
+            >
+          </div>
+        </div>
+      </div>
+      <div class="mobile-nav-overlay" id="mobile-nav-overlay"></div>
+    </header>
+
+    <section class="hero-section" id="hero-section">
+      <div class="hero-backdrop"></div>
+      <div class="hero-content">
+        <h1 class="hero-title" id="hero-title">Featured Today</h1>
+        <div class="hero-meta" id="hero-meta">
+          <span class="hero-rating"><i class="fas fa-star"></i> 8.5</span>
+          <span>2023</span>
+          <span>Action, Adventure</span>
+        </div>
+        <p class="hero-description" id="hero-description">
+          Discover the most amazing movies and shows, handpicked just for you.
+        </p>
+        <div class="hero-actions">
+          <button class="btn-hero-primary" id="hero-watch-btn">
+            <i class="fas fa-play"></i> Watch Now
+          </button>
+          <button class="hero-bookmark" id="hero-bookmark-btn-new">
+            <i class="far fa-bookmark"></i>
+            <span>Add to List</span>
+          </button>
+        </div>
+      </div>
+      <div class="hero-gradient"></div>
+    </section>
+
+    <main class="main-content" id="main-content">
+      <section class="content-section active" id="home-section">
+        <!-- Continue Watching Section -->
+        <div
+          class="content-row"
+          id="continue-watching-row"
+          style="display: none"
+        >
+          <div class="section-header">
+            <h2 class="section-title">Continue Watching</h2>
+          </div>
+          <div class="content-grid" id="continue-watching-grid"></div>
+        </div>
+
+        <div class="content-row">
+          <div class="section-header">
+            <h2 class="section-title">Trending Now</h2>
+          </div>
+          <div class="content-grid" id="trending-grid"></div>
+        </div>
+        <div class="content-row">
+          <div class="section-header">
+            <h2 class="section-title">Popular Movies</h2>
+          </div>
+          <div class="content-grid" id="popular-movies-grid"></div>
+        </div>
+        <div class="content-row">
+          <div class="section-header">
+            <h2 class="section-title">Popular TV Shows</h2>
+          </div>
+          <div class="content-grid" id="popular-tv-grid"></div>
+        </div>
+      </section>
+
+      <section class="content-section" id="movies-section">
+        <div class="section-header">
+          <h2>Movies</h2>
+          <div class="genre-filters">
+            <button class="genre-btn active" data-genre="all">All</button>
+            <button class="genre-btn" data-genre="28">Action</button>
+            <button class="genre-btn" data-genre="35">Comedy</button>
+            <button class="genre-btn" data-genre="18">Drama</button>
+            <button class="genre-btn" data-genre="27">Horror</button>
+            <button class="genre-btn" data-genre="878">Sci-Fi</button>
+          </div>
+        </div>
+        <div class="content-grid-full" id="movies-grid"></div>
+      </section>
+
+      <section class="content-section" id="tv-section">
+        <div class="section-header">
+          <h2>TV Shows</h2>
+          <div class="genre-filters">
+            <button class="genre-btn active" data-genre="all">All</button>
+            <button class="genre-btn" data-genre="10759">Action</button>
+            <button class="genre-btn" data-genre="35">Comedy</button>
+            <button class="genre-btn" data-genre="18">Drama</button>
+            <button class="genre-btn" data-genre="9648">Mystery</button>
+            <button class="genre-btn" data-genre="10765">Sci-Fi</button>
+          </div>
+        </div>
+        <div class="content-grid-full" id="tv-grid"></div>
+      </section>
+
+      <section class="content-section" id="bollywood-section">
+        <div class="section-header">
+          <h2>Bollywood Movies</h2>
+          <div class="genre-filters">
+            <button class="genre-btn active" data-genre="all">All</button>
+            <button class="genre-btn" data-genre="35">Comedy</button>
+            <button class="genre-btn" data-genre="18">Drama</button>
+            <button class="genre-btn" data-genre="10749">Romance</button>
+            <button class="genre-btn" data-genre="53">Thriller</button>
+            <button class="genre-btn" data-genre="28">Action</button>
+          </div>
+        </div>
+        <div class="content-grid-full" id="bollywood-grid"></div>
+      </section>
+
+      <section class="content-section" id="mylist-section">
+        <div class="section-header">
+          <h2>My List</h2>
+        </div>
+        <div class="content-grid-full" id="mylist-grid"></div>
+      </section>
+
+      <section class="content-section" id="about-section">
+        <div class="about-hero">
+          <div class="about-hero-content">
+            <h1 class="about-hero-title">Welcome to OnlyBinge</h1>
+            <p class="about-hero-subtitle">
+              Your Ultimate Streaming Paradise at Just ₹50/month
+            </p>
+            <div class="about-hero-stats">
+              <div class="stat-card">
+                <i class="fas fa-film"></i>
+                <h3>10,000+</h3>
+                <p>Movies & Shows</p>
+              </div>
+              <div class="stat-card">
+                <i class="fas fa-bolt"></i>
+                <h3>Instant</h3>
+                <p>Streaming</p>
+              </div>
+              <div class="stat-card">
+                <i class="fas fa-ban"></i>
+                <h3>Zero</h3>
+                <p>Ads</p>
+              </div>
+              <div class="stat-card">
+                <i class="fas fa-rupee-sign"></i>
+                <h3>₹50</h3>
+                <p>Per Month</p>
+              </div>
+            </div>
+          </div>
+          <div class="floating-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+            <div class="shape shape-4"></div>
+          </div>
+        </div>
+
+        <div class="about-container">
+          <!-- Why Choose Us Section -->
+          <div class="about-section-block">
+            <h2 class="section-heading">Why OnlyBinge is Your Best Choice</h2>
+            <div class="features-grid">
+              <div class="feature-card">
+                <div class="feature-icon">
+                  <i class="fas fa-rocket"></i>
+                </div>
+                <h3>Instant Streaming</h3>
+                <p>
+                  No downloads, no waiting. Start watching immediately with our
+                  lightning-fast streaming technology.
+                </p>
+              </div>
+
+              <div class="feature-card">
+                <div class="feature-icon">
+                  <i class="fas fa-clock"></i>
+                </div>
+                <h3>Save Your Time</h3>
+                <p>
+                  Skip hours of searching through multiple redirects on free
+                  sites. Everything you need in one place.
+                </p>
+              </div>
+
+              <div class="feature-card">
+                <div class="feature-icon">
+                  <i class="fas fa-shield-alt"></i>
+                </div>
+                <h3>Safe & Secure</h3>
+                <p>
+                  No sketchy ads, no malware, no redirects. Your safety is our
+                  priority.
+                </p>
+              </div>
+
+              <div class="feature-card">
+                <div class="feature-icon">
+                  <i class="fas fa-money-bill-wave"></i>
+                </div>
+                <h3>Incredibly Affordable</h3>
+                <p>
+                  At ₹50/month, it's less than a cup of coffee. Premium
+                  entertainment shouldn't break the bank.
+                </p>
+              </div>
+
+              <div class="feature-card">
+                <div class="feature-icon">
+                  <i class="fas fa-video"></i>
+                </div>
+                <h3>Multiple Quality Options</h3>
+                <p>
+                  Choose from 4 different sources based on your internet speed
+                  and data preferences.
+                </p>
+              </div>
+
+              <div class="feature-card">
+                <div class="feature-icon">
+                  <i class="fas fa-mobile-alt"></i>
+                </div>
+                <h3>Works Everywhere</h3>
+                <p>
+                  Stream on your laptop, desktop, or mobile. No app installation
+                  required.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Price Comparison Section -->
+          <div class="about-section-block price-comparison-section">
+            <h2 class="section-heading">Compare & Save Big</h2>
+            <p class="section-subheading">
+              See how much you save with OnlyBinge
+            </p>
+
+            <div class="comparison-cards">
+              <div class="comparison-card competitor">
+                <div class="card-header">
+                  <h3>Netflix</h3>
+                  <span class="badge expensive">Premium</span>
+                </div>
+                <div class="card-price">
+                  <span class="currency">₹</span>
+                  <span class="amount">649</span>
+                  <span class="period">/month</span>
+                </div>
+                <ul class="card-features">
+                  <li><i class="fas fa-check"></i> 4K Quality</li>
+                  <li><i class="fas fa-check"></i> 4 Devices</li>
+                  <li><i class="fas fa-times"></i> Limited Library</li>
+                </ul>
+              </div>
+
+              <div class="comparison-card competitor">
+                <div class="card-header">
+                  <h3>Amazon Prime</h3>
+                  <span class="badge moderate">Popular</span>
+                </div>
+                <div class="card-price">
+                  <span class="currency">₹</span>
+                  <span class="amount">299</span>
+                  <span class="period">/month</span>
+                </div>
+                <ul class="card-features">
+                  <li><i class="fas fa-check"></i> HD Quality</li>
+                  <li><i class="fas fa-check"></i> 2 Devices</li>
+                  <li><i class="fas fa-times"></i> Ads on Some Content</li>
+                </ul>
+              </div>
+
+              <div class="comparison-card competitor">
+                <div class="card-header">
+                  <h3>Disney+ Hotstar</h3>
+                  <span class="badge moderate">Popular</span>
+                </div>
+                <div class="card-price">
+                  <span class="currency">₹</span>
+                  <span class="amount">299</span>
+                  <span class="period">/month</span>
+                </div>
+                <ul class="card-features">
+                  <li><i class="fas fa-check"></i> 4K Quality</li>
+                  <li><i class="fas fa-check"></i> 4 Devices</li>
+                  <li><i class="fas fa-times"></i> Regional Focus</li>
+                </ul>
+              </div>
+
+              <div class="comparison-card highlight">
+                <div class="card-ribbon">Best Value</div>
+                <div class="card-header">
+                  <h3>OnlyBinge</h3>
+                  <span class="badge best">Unbeatable</span>
+                </div>
+                <div class="card-price">
+                  <span class="currency">₹</span>
+                  <span class="amount">50</span>
+                  <span class="period">/month</span>
+                </div>
+                <ul class="card-features">
+                  <li><i class="fas fa-check"></i> Multiple Quality Options</li>
+                  <li><i class="fas fa-check"></i> Unlimited Devices</li>
+                  <li><i class="fas fa-check"></i> Massive Library</li>
+                  <li><i class="fas fa-check"></i> Zero Ads</li>
+                </ul>
+                <div class="savings-badge">Save up to ₹7,188/year!</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- How to Use Section -->
+          <div class="about-section-block how-to-section">
+            <h2 class="section-heading">Getting Started is Easy</h2>
+            <div class="steps-container">
+              <div class="step-card">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                  <h3>Sign Up</h3>
+                  <p>
+                    Create your account in less than 30 seconds. Just email and
+                    password required.
+                  </p>
+                </div>
+                <div class="step-icon">
+                  <i class="fas fa-user-plus"></i>
+                </div>
+              </div>
+
+              <div class="step-arrow">
+                <i class="fas fa-arrow-down"></i>
+              </div>
+
+              <div class="step-card">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                  <h3>Subscribe for ₹50/month</h3>
+                  <p>
+                    Complete payment via UPI. Your account will be activated
+                    within 24 hours.
+                  </p>
+                </div>
+                <div class="step-icon">
+                  <i class="fas fa-credit-card"></i>
+                </div>
+              </div>
+
+              <div class="step-arrow">
+                <i class="fas fa-arrow-down"></i>
+              </div>
+
+              <div class="step-card">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                  <h3>Start Streaming</h3>
+                  <p>
+                    Browse thousands of movies and shows. Click and watch
+                    instantly!
+                  </p>
+                </div>
+                <div class="step-icon">
+                  <i class="fas fa-play-circle"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Video Source Guide Section -->
+          <div class="about-section-block sources-guide-section">
+            <h2 class="section-heading">Understanding Video Sources</h2>
+            <p class="section-subheading">
+              We provide 8 different sources for maximum reliability
+            </p>
+
+            <div class="sources-info">
+              <div class="source-info-card premium">
+                <h3>Source 1: Premium Quality</h3>
+                <div class="source-features">
+                  <div class="source-feature">
+                    <i class="fas fa-hd"></i>
+                    <span>Best Video Quality (1080p-4K)</span>
+                  </div>
+                  <div class="source-feature">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <span>Fastest Loading Speed</span>
+                  </div>
+                  <div class="source-feature">
+                    <i class="fas fa-database"></i>
+                    <span>Higher Data Usage (~2-3GB/movie)</span>
+                  </div>
+                </div>
+                <p class="source-tip">
+                  <i class="fas fa-lightbulb"></i>
+                  <strong>Use when:</strong> You have high-speed internet and
+                  want the best viewing experience
+                </p>
+              </div>
+
+              <div class="source-info-card balanced">
+                <h3>Sources 2: Balanced</h3>
+                <div class="source-features">
+                  <div class="source-feature">
+                    <i class="fas fa-hd"></i>
+                    <span>Good Quality (720p-1080p)</span>
+                  </div>
+                  <div class="source-feature">
+                    <i class="fas fa-wifi"></i>
+                    <span>Works on Moderate Internet</span>
+                  </div>
+                  <div class="source-feature">
+                    <i class="fas fa-database"></i>
+                    <span>Medium Data Usage (~1-2GB/movie)</span>
+                  </div>
+                </div>
+                <p class="source-tip">
+                  <i class="fas fa-lightbulb"></i>
+                  <strong>Use when:</strong> You want good quality without
+                  consuming too much data
+                </p>
+              </div>
+
+              <div class="source-info-card data-saver">
+                <div class="source-badge">Recommended</div>
+                <h3>Sources 3 & 4: Data Saver</h3>
+                <div class="source-features">
+                  <div class="source-feature">
+                    <i class="fas fa-video"></i>
+                    <span>Standard Quality (480p-720p)</span>
+                  </div>
+                  <div class="source-feature">
+                    <i class="fas fa-signal"></i>
+                    <span>Works on Slow Internet</span>
+                  </div>
+                  <div class="source-feature">
+                    <i class="fas fa-database"></i>
+                    <span>Low Data Usage (~500MB-1GB/movie)</span>
+                  </div>
+                </div>
+                <p class="source-tip">
+                  <i class="fas fa-lightbulb"></i>
+                  <strong>Use when:</strong> You're on limited data or slower
+                  internet connection
+                </p>
+              </div>
+            </div>
+
+            <div class="pro-tips-box">
+              <h3><i class="fas fa-star"></i> Pro Tips</h3>
+              <ul>
+                <li>
+                  <i class="fas fa-check-circle"></i> If one source doesn't
+                  load, simply switch to another - at least one will always work
+                </li>
+                <li>
+                  <i class="fas fa-check-circle"></i> Source 1 usually loads
+                  fastest, but try Source 4 if you're on mobile data
+                </li>
+                <li>
+                  <i class="fas fa-check-circle"></i> All sources have zero
+                  buffering once the video starts playing
+                </li>
+                <li>
+                  <i class="fas fa-check-circle"></i> Install our recommended
+                  popup blocker for the smoothest experience
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- FAQ Section -->
+          <div class="about-section-block faq-section">
+            <h2 class="section-heading">Frequently Asked Questions</h2>
+            <div class="faq-container">
+              <div class="faq-item">
+                <div class="faq-question">
+                  <h3>Is OnlyBinge legal and safe?</h3>
+                  <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                  <p>
+                    OnlyBinge is a streaming aggregator platform. We prioritize
+                    user safety with no malicious ads or redirects. Always use a
+                    popup blocker for the best experience.
+                  </p>
+                </div>
+              </div>
+
+              <div class="faq-item">
+                <div class="faq-question">
+                  <h3>What if a video source doesn't work?</h3>
+                  <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                  <p>
+                    We provide 4 different sources for every movie/show. If one
+                    doesn't work, simply click another source button. Our
+                    auto-failover system also tries the next source
+                    automatically.
+                  </p>
+                </div>
+              </div>
+
+              <div class="faq-item">
+                <div class="faq-question">
+                  <h3>Can I use OnlyBinge on mobile?</h3>
+                  <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                  <p>
+                    Yes! OnlyBinge works on mobile browsers. However, for the
+                    best experience, we recommend using a laptop or desktop
+                    computer.
+                  </p>
+                </div>
+              </div>
+
+              <div class="faq-item">
+                <div class="faq-question">
+                  <h3>How do I activate my subscription?</h3>
+                  <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                  <p>
+                    After payment via UPI, submit your transaction ID or send
+                    payment screenshot to our admin. Your account will be
+                    activated within 24 hours (usually much faster).
+                  </p>
+                </div>
+              </div>
+
+              <div class="faq-item">
+                <div class="faq-question">
+                  <h3>Do you have the latest movies and shows?</h3>
+                  <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                  <p>
+                    Yes! Our library is constantly updated with the latest
+                    releases, trending content, and all-time classics across all
+                    genres and languages.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- CTA Section -->
+          <div class="about-cta-section">
+            <div class="cta-content">
+              <h2>Ready to Start Binging?</h2>
+              <p>
+                Join thousands of happy users streaming unlimited entertainment
+                at just ₹50/month
+              </p>
+              <button class="cta-button" id="about-subscribe-btn">
+                <i class="fas fa-crown"></i>
+                Subscribe Now - ₹50/month
+              </button>
+            </div>
+            <div class="cta-floating-icons">
+              <i class="fas fa-film floating-icon"></i>
+              <i class="fas fa-tv floating-icon"></i>
+              <i class="fas fa-popcorn floating-icon"></i>
+              <i class="fas fa-star floating-icon"></i>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="content-section" id="search-section">
+        <div class="search-results-header">
+          <h2>Search Results</h2>
+          <button class="view-all-btn" id="clear-search">Clear Search</button>
+        </div>
+        <div class="content-grid-full" id="search-grid"></div>
+      </section>
+    </main>
+
+    <div class="player-modal" id="player-modal">
+      <div class="player-overlay" id="player-overlay"></div>
+      <div class="player-container">
+        <div class="player-header">
+          <button class="player-close" id="player-close">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+        <div class="player-body">
+          <div class="player-video-section">
+            <iframe
+              class="video-frame"
+              id="video-frame"
+              title="Video Player"
+            ></iframe>
+          </div>
+          <div class="player-sidebar">
+            <div class="player-info">
+              <h3 id="player-title">Title</h3>
+              <div class="player-meta">
+                <span class="player-rating"
+                  ><i class="fas fa-star"></i>
+                  <span id="player-rating-value">N/A</span></span
+                >
+                <span id="player-year">2023</span>
+                <span id="player-type">Movie</span>
+              </div>
+              <p id="player-description">Description</p>
+            </div>
+
+            <div class="source-selection">
+              <label>Video Source:</label>
+              <div class="source-quality-info">
+                <div class="quality-tip">
+                  <i class="fas fa-info-circle"></i>
+                  <span
+                    ><strong>Tip:</strong> Source 1-2 need fast internet. Source
+                    3+ work on slow connections.</span
+                  >
+                </div>
+              </div>
+              <div class="source-buttons" id="source-buttons"></div>
+            </div>
+
+            <div class="tv-controls" id="tv-controls">
+              <div class="season-episode-controls">
+                <div class="season-selection">
+                  <label>Season</label>
+                  <select id="season-select"></select>
+                </div>
+              </div>
+
+              <div class="episodes-section">
+                <h4>Episodes</h4>
+                <div class="episodes-list" id="episodes-list"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="account-modal" id="account-modal">
+      <div class="account-container">
+        <button class="modal-close" id="account-close">
+          <i class="fas fa-times"></i>
+        </button>
+
+        <div class="profile-header">
+          <div class="profile-avatar-section">
+            <div class="profile-avatar-wrapper">
+              <img
+                id="profile-avatar-display"
+                src="https://avatar.iran.liara.run/public/43"
+                alt="Profile Avatar"
+                class="profile-avatar"
+              />
+              <div class="avatar-upload-overlay">
+                <i class="fas fa-camera"></i>
+                <span>Change Photo</span>
+              </div>
+              <input
+                type="file"
+                id="avatar-upload-input"
+                accept="image/png,image/jpeg,image/jpg,image/webp"
+                style="display: none"
+              />
+            </div>
+          </div>
+
+          <div class="profile-info-section">
+            <div class="profile-edit-group">
+              <label for="profile-display-name">Display Name</label>
+              <input
+                type="text"
+                id="profile-display-name"
+                class="profile-input"
+                placeholder="Enter your name"
+                maxlength="50"
+              />
+            </div>
+
+            <div class="profile-edit-group">
+              <label for="profile-favorite-genre">Favorite Genre</label>
+              <select id="profile-favorite-genre" class="profile-input">
+                <option value="">Select your favorite genre</option>
+                <option value="action">Action</option>
+                <option value="comedy">Comedy</option>
+                <option value="drama">Drama</option>
+                <option value="horror">Horror</option>
+                <option value="sci-fi">Sci-Fi</option>
+                <option value="thriller">Thriller</option>
+                <option value="romance">Romance</option>
+                <option value="documentary">Documentary</option>
+                <option value="animation">Animation</option>
+              </select>
+            </div>
+
+            <button class="btn-save-profile" id="save-profile-btn">
+              <i class="fas fa-save"></i> Save Profile
+            </button>
+          </div>
+        </div>
+
+        <div class="profile-tabs">
+          <button class="profile-tab active" data-tab="stats">
+            <i class="fas fa-chart-bar"></i> Stats
+          </button>
+          <button class="profile-tab" data-tab="badges">
+            <i class="fas fa-trophy"></i> Badges
+          </button>
+          <button class="profile-tab" data-tab="settings">
+            <i class="fas fa-cog"></i> Settings
+          </button>
+        </div>
+
+        <!-- Stats Tab -->
+        <div class="profile-tab-content active" id="stats-tab">
+          <div class="stats-grid">
+            <div class="profile-stat-card">
+              <div class="stat-icon"><i class="fas fa-clock"></i></div>
+              <div class="stat-info">
+                <div class="stat-value" id="stat-watch-time">0h</div>
+                <div class="stat-label">Watch Time</div>
+              </div>
+            </div>
+
+            <div class="profile-stat-card">
+              <div class="stat-icon"><i class="fas fa-film"></i></div>
+              <div class="stat-info">
+                <div class="stat-value" id="stat-movies">0</div>
+                <div class="stat-label">Movies Watched</div>
+              </div>
+            </div>
+
+            <div class="profile-stat-card">
+              <div class="stat-icon"><i class="fas fa-tv"></i></div>
+              <div class="stat-info">
+                <div class="stat-value" id="stat-series">0</div>
+                <div class="stat-label">Series Started</div>
+              </div>
+            </div>
+
+            <div class="profile-stat-card">
+              <div class="stat-icon"><i class="fas fa-bookmark"></i></div>
+              <div class="stat-info">
+                <div class="stat-value" id="stat-bookmarks">0</div>
+                <div class="stat-label">Bookmarks</div>
+              </div>
+            </div>
+
+            <div class="profile-stat-card">
+              <div class="stat-icon"><i class="fas fa-fire"></i></div>
+              <div class="stat-info">
+                <div class="stat-value" id="stat-streak">0</div>
+                <div class="stat-label">Day Streak</div>
+              </div>
+            </div>
+
+            <div class="profile-stat-card">
+              <div class="stat-icon"><i class="fas fa-trophy"></i></div>
+              <div class="stat-info">
+                <div class="stat-value" id="stat-badges">0</div>
+                <div class="stat-label">Badges Earned</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Badges Tab -->
+        <div class="profile-tab-content" id="badges-tab">
+          <div class="badges-header">
+            <h3>Your Achievements</h3>
+            <p class="badges-subtitle">
+              Earn badges by watching content and exploring the platform
+            </p>
+          </div>
+          <div class="badges-grid" id="badges-grid">
+            <!-- Badges will be dynamically loaded here -->
+          </div>
+        </div>
+
+        <!-- Settings Tab -->
+        <div class="profile-tab-content" id="settings-tab">
+          <div class="settings-section">
+            <div class="setting-item">
+              <div class="setting-info">
+                <h4>Email Address</h4>
+                <p id="settings-email">user@example.com</p>
+              </div>
+            </div>
+
+            <div class="setting-item">
+              <div class="setting-info">
+                <h4>Member Since</h4>
+                <p id="settings-member-since">January 2024</p>
+              </div>
+            </div>
+
+            <div class="setting-item">
+              <div class="setting-info">
+                <h4>Subscription Status</h4>
+                <p>
+                  <span
+                    id="settings-subscription-status"
+                    class="subscription-status"
+                    >Active</span
+                  >
+                </p>
+              </div>
+            </div>
+
+            <div class="setting-actions">
+              <button class="btn-secondary" id="change-password-settings">
+                <i class="fas fa-key"></i> Change Password
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Payment Modal -->
+    <div class="payment-modal" id="payment-modal">
+      <div class="payment-overlay"></div>
+      <div class="payment-container">
+        <button class="modal-close" id="payment-close">
+          <i class="fas fa-times"></i>
+        </button>
+        <div class="payment-content">
+          <h2>Subscribe to OnlyBinge</h2>
+          <div class="payment-price">
+            <span class="payment-currency">₹</span>
+            <span class="payment-amount">50</span>
+            <span class="payment-period">/month</span>
+          </div>
+
+          <div class="payment-qr-section">
+            <h3>Scan QR Code to Pay</h3>
+            <div class="qr-code-container">
+              <img
+                src="payment-qr.png"
+                alt="UPI QR Code"
+                class="qr-code"
+                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+              />
+              <div class="qr-placeholder" style="display: none">
+                <i class="fas fa-qrcode"></i>
+                <p>QR Code</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="payment-divider">
+            <span>OR</span>
+          </div>
+
+          <div class="payment-upi-section">
+            <h3>Pay using UPI ID</h3>
+            <div class="upi-id-container">
+              <span class="upi-id">sokandesujal-1@okaxis</span>
+              <button
+                class="btn-copy"
+                onclick="navigator.clipboard.writeText('sokandesujal-1@okaxis'); showNotification('UPI ID copied!', 'success')"
+              >
+                <i class="fas fa-copy"></i> Copy
+              </button>
+            </div>
+          </div>
+
+          <div class="payment-instructions">
+            <h4>Instructions:</h4>
+            <ol>
+              <li>Scan the QR code or pay to the UPI ID above</li>
+              <li>Complete the payment of ₹50</li>
+              <li>
+                Contact admin with your payment screenshot to activate your
+                account
+              </li>
+              <li>
+                Admin will verify and activate your subscription within 24 hours
+              </li>
+            </ol>
+          </div>
+
+          <div class="payment-contact">
+            <p><strong>Contact Admin:</strong></p>
+            <p>Email: sokandesujal@gmail.com</p>
+            <p>WhatsApp: +91 8669668003</p>
+            <div class="payment-divider">
+              <span>ALREADY PAID?</span>
+            </div>
+
+            <div class="transaction-id-section">
+              <h3>Submit Transaction ID</h3>
+              <p class="transaction-note">
+                If you've already made the payment, enter your transaction ID
+                below to verify your payment.
+              </p>
+              <div class="transaction-id-container">
+                <input
+                  type="text"
+                  id="transaction-id-input"
+                  class="transaction-id-input"
+                  placeholder="Enter your transaction ID"
+                  maxlength="50"
+                />
+                <button
+                  id="submit-transaction-btn"
+                  class="btn-submit-transaction"
+                >
+                  <i class="fas fa-check"></i> Submit
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Extension Recommendation Popup -->
+    <div class="extension-popup" id="extension-popup">
+      <div class="extension-popup-overlay"></div>
+      <div class="extension-popup-content">
+        <button class="extension-popup-close" id="close-extension-popup">
+          <i class="fas fa-times"></i>
+        </button>
+        <div class="extension-popup-icon">
+          <i class="fas fa-shield-alt"></i>
+        </div>
+        <h2>Enhance Your Viewing Experience</h2>
+        <p class="extension-popup-description">
+          We recommend installing
+          <strong>"Pop up blocker for Chrome™ - Poper Blocker"</strong> to avoid
+          interruptions and multiple popups while watching movies on OnlyBinge.
+          This extension is completely safe and will significantly improve your
+          streaming experience.
+        </p>
+        <p class="extension-popup-note">
+          <i class="fas fa-laptop"></i>
+          <strong>Best Experience:</strong> For optimal viewing, we recommend
+          using a laptop or desktop computer, as OnlyBinge is not yet fully
+          optimized for mobile devices.
+        </p>
+        <div class="extension-popup-actions">
+          <button class="btn-extension-install" id="install-extension-btn">
+            <i class="fas fa-download"></i> Install Extension
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div id="notification-container"></div>
+  </body>
+  <script type="module" src="./streaming-platform.js"></script>
+</html>
